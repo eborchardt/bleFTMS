@@ -18,7 +18,7 @@ String readElevation(float elevationGain);
 String readCadence(int cadence);
 
 void initBLE(const char* deviceName);
-void initBLE(void);
+void initBLE();
 
 // void initBLE(void);
 void loopHandleBLE(void); 
