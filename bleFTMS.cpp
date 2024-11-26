@@ -2,12 +2,11 @@
 #include <ArduinoJson.h>
 #include <TimeLib.h>  // https://playground.arduino.cc/Code/Time/
 
-
 #include "bleFTMS.h" 
 
 #include <NimBLEDevice.h>
 
-#define DeviceName "Livestrong LS8.0T Dev"
+const char* deviceName = DEVICE_NAME;
 
 bool bleClientConnected = false;
 bool bleClientConnectedPrev = false;
@@ -78,10 +77,17 @@ void loopHandleBLE()
   }
 }
 
-void initBLE() {
-  Serial.println("init BLE...");
+// If no name has been provided, use the default name
+void initBLE(void) {
+  initBLE(DEVICE_NAME);
+}
 
-  BLEDevice::init(DeviceName);  // set server name (here: DeviceName)
+void initBLE(const char* deviceName) {
+  Serial.println("init BLE...");
+  Serial.print("Starting BLE Service... ");
+  Serial.println(deviceName);
+
+  BLEDevice::init(deviceName);  // set server name (here: deviceName)
 
   // create BLE Server, set callback for connect/disconnect
   pServer = BLEDevice::createServer();

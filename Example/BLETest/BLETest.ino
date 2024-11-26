@@ -19,6 +19,7 @@ CurrentSettings currentSettings = {
 void setup() {
   Serial.begin(9600);
   initBLE();
+  loopHandleBLE();
   updateBLEdata(currentSettings.kmph, 
                 currentSettings.incline, 
                 currentSettings.elevationGain, 
@@ -27,11 +28,10 @@ void setup() {
 }
 
 void loop() {
-  loopHandleBLE();
-
-  Serial.print("Enter the new speed in X.XX km/h: ");
+  Serial.println("Enter the new speed in X.XX km/h: ");
   while (!Serial.available()) {
   // Wait indefinitely for user input
+    loopHandleBLE();
     updateBLEdata(currentSettings.kmph, 
                   currentSettings.incline, 
                   currentSettings.elevationGain, 
