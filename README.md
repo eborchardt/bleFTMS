@@ -15,7 +15,7 @@ The bleFTMS library provides a simple and easy-to-use interface for interacting 
 * Serial debugging output
 
 ### Usage
-To use bleFTMS to send the data from your treadmill, you only need a could of commands:
+To use bleFTMS to send the data from your treadmill, you only need a couple of commands:
 ##### Initialize the BLE services
     initBLE();
 
